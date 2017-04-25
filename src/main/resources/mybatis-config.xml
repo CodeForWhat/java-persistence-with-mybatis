@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- alias configuration forms -->
+	<typeAliases>
+		<!-- form1 -->
+		<!-- <typeAlias alias="student" type="indi.learn.beans.StudentPO" /> -->
+		<!-- form2 -->
+		<package name="indi.learn.beans" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<datasource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost/learn_mybatis" />
+				<property name="username" value="KevinYin" />
+				<property name="password" value="yinkailin" />
+			</datasource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resources="indi/learn/persistence/mybatis/mappers/student-mapper.xml" />
+	</mappers>
+
+</configuration>

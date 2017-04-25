@@ -1,5 +1,10 @@
 package indi.learn.beans;
 
+import java.sql.Date;
+
+import org.apache.ibatis.type.Alias;
+
+@Alias("student")
 public class StudentPO {
 	private int id;
 	private String studId;
@@ -7,6 +12,7 @@ public class StudentPO {
 	private String email;
 	private String phoneNumber;
 	private String address;
+	private Date dob;
 
 	public StudentPO() {
 
@@ -68,9 +74,17 @@ public class StudentPO {
 		this.address = address;
 	}
 
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
 	@Override
 	public String toString() {
 		return "StudentPO [id=" + id + ", studId=" + studId + ", name=" + name + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", address=" + address + "]";
+				+ phoneNumber + ", address=" + address + ", dob=" + dob + "]";
 	}
 }

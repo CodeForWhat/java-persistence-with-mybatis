@@ -14,17 +14,17 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
-			<datasource type="POOLED">
+			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url" value="jdbc:mysql://localhost/learn_mybatis" />
 				<property name="username" value="KevinYin" />
 				<property name="password" value="yinkailin" />
-			</datasource>
+			</dataSource>
 		</environment>
 	</environments>
 
 	<mappers>
-		<mapper resources="indi/learn/persistence/mybatis/mappers/student-mapper.xml" />
+		<mapper resource="indi/learn/persistence/mybatis/mappers/student-mapper.xml" />
 	</mappers>
 
 </configuration>

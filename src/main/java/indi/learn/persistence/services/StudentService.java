@@ -29,7 +29,9 @@ public class StudentService {
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		try {
 			StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-			return mapper.insert(po);
+			int rows = mapper.insert(po);
+			sqlSession.commit();
+			return rows;
 		} finally {
 			if(sqlSession != null) {
 				sqlSession.close();
@@ -42,7 +44,9 @@ public class StudentService {
 		
 		try {
 			StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-			return mapper.update(po);
+			int rows = mapper.update(po);
+			sqlSession.commit();
+			return rows;
 		} finally {
 			if(sqlSession != null) {
 				sqlSession.close();
@@ -54,7 +58,9 @@ public class StudentService {
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		try {
 			StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-			return mapper.delete(id);
+			int rows = mapper.delete(id);
+			sqlSession.commit();
+			return rows;
 		} finally {
 			if(sqlSession != null) {
 				sqlSession.close();

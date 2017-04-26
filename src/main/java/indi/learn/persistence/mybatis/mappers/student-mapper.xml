@@ -4,25 +4,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="indi.learn.persistence.mybatis.mappers.StudentMapper">
 	<resultMap type="student" id="StudentMap">
-		<id property="stuId" column="stu_id" />
+		<id property="id" column="stu_id" />
 		<result property="name" column="name" />
 		<result property="email" column="email" />
 		<result property="dob" column="dob" />
 	</resultMap>
 	
-	<select id="selectById" paramterType="int" resultType="StudentMap">
-		select * from students where stu_id = #{id}
+	<select id="selectById" parameterType="int" resultMap="StudentMap">
+		select * from students where stud_id = #{id}
 	</select>
 	
-	<delete id="delete" parameterType="int" resultType="int">
-		delete * from students where stu_id = #{id}
+	<delete id="delete" parameterType="int">
+		delete from students where stud_id = #{id}
 	</delete>
 	
-	<delete id="update" parameterType="student" resultType="int">
-		update students set name = #{name}, email = #{email}, dob = #{dob} where stu_id = #{stu_id}
-	</delete>
+	<update id="update" parameterType="student">
+		update students set name = #{name}, email = #{email}, dob = #{dob} where stud_id = #{id}
+	</update>
 	
-	<insert id="insert" parameterType="student" resultType="int">
+	<insert id="insert" parameterType="student" useGeneratedKeys="true" keyProperty="id">
 		insert into students(name, email, dob) values(#{name}, #{email}, #{dob})
 	</insert>
 	
